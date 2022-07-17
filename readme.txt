@@ -7,6 +7,11 @@ It does not need any plugin manager.
 This vimrc has been developed on Ubuntu Mate 22.04
 vim is different from vi which ships already with ubunutu, so you have to install the following:
 
+LICSENSE
+=========
+
+MIT / you are free to do whatever you want with it, sell, change, fork, ... enjoy, without any legal responsibility on me!
+
 INSTALL
 ========
 
