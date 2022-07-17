@@ -21,3 +21,20 @@ Happy viming! :)
 SCREENSHOTS
 ===========
 included in the folder
+
+FEATURES
+========
+
+in this setup I have included the following:
+- using Tabs (Shift-F12) opens a new tab with a file Explorer, once you select a file, it will open it
+- Toggle netrw using (F12)
+- close any tab (buffer) when pressing (Ctrl-F12)
+- open built-in Terminal by pressing (F8)
+- Or open a vertical terminal by pressing (Shift-F8)
+- Auto indent the code by pressing (F3)
+- Ctrl-a : Select all
+- Ctrl-c : copy ( to system clipboard)
+- Ctrl-v : paste ( from system clipboard)
+- Ctrl-x : cut ( into system clipboard)
+- Ctrl-(arrow): navigate between open windows
+
