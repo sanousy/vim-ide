@@ -37,4 +37,9 @@ in this setup I have included the following:
 - Ctrl-v : paste ( from system clipboard)
 - Ctrl-x : cut ( into system clipboard)
 - Ctrl-(arrow): navigate between open windows
+- emmet : plugin (downloaded from github emmet repository)
+- colorscheme: my favorite sano.vim
+- smart indentation 2 for html, js, css, and 4 for rest
 
+for me I thought it is enough, to make it great IDE.
+Please tell me wheter it works with you or not.
