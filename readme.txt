@@ -17,3 +17,7 @@ copy .vimrc to your home folder (~)
 copy vim to your home folder (~), and then rename it to .vim (instead of vim).
 
 Happy viming! :)
+
+SCREENSHOTS
+===========
+included in the folder
