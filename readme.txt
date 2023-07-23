@@ -60,7 +60,7 @@ sudo apt upgrade vim-gtk
 the second line helps the vim editor to interact with system clipboard.
 
 I have added all shells required to install vim (installvim.sh)
-and to store the .vim & .vimrc into your home directory, so you can enjoy directly running vi with a good look, and simple yet nice functionality that serves 70% of actions you might need as developer, although I have vscode, but still I think vim is so poerful and handy to edit side files, and view huge files as well in a very efiicient way.
+and (setup.sh) to store the .vim & .vimrc into your home directory, so you can enjoy directly running vi with a good look, and simple yet nice functionality that serves 70% of actions you might need as developer, although I have vscode, but still I think vim is so poerful and handy to edit side files, and view huge files as well in a very efiicient way.
 
 Sanousy.
 
