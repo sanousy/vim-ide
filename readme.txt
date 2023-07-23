@@ -41,10 +41,14 @@ in this setup I have included the following:
 - Ctrl-c : copy ( to system clipboard)
 - Ctrl-v : paste ( from system clipboard)
 - Ctrl-x : cut ( into system clipboard)
-- Ctrl-(arrow): navigate between open windows
+- Ctrl-(arrow): navigate between open windows ( when using split or vsplit commands)
 - emmet : plugin (downloaded from github emmet repository)
 - colorscheme: my favorite sano.vim
-- smart indentation 2 for html, js, css, and 4 for rest
+- F3 smart indentation 2 for html, js, css, and 4 for rest
+- Ctrl+PgUP , Ctrl+PgDn to navigate between buffers (tabs at the top of the screen)
+- Ctrl-s : save
+- Ctrl-o : open
+- Ctrl-q : close 
 
 for me I thought it is enough, to make it great IDE.
 Please tell me wheter it works with you or not.
