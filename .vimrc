@@ -27,159 +27,49 @@ if has('syntax')
     syntax on
 endif
 
-"------------------------------------------------------------
-" Must have options {{{1
-"
-" These are highly recommended options.
-
-" Vim with default settings does not allow easy switching between multiple files
-" in the same editor window. Users can use multiple split windows or multiple
-" tab pages to edit multiple files, but it is still best to enable an option to
-" allow easier switching between files.
-"
-" One such option is the 'hidden' option, which allows you to re-use the same
-" window and switch from an unsaved buffer without saving it first. Also allows
-" you to keep an undo history for multiple files when re-using the same window
-" in this way. Note that using persistent undo also lets you undo in multiple
-" files even in the same window, but is less efficient and is actually designed
-" for keeping undo history after closing Vim entirely. Vim will complain if you
-" try to quit without saving, and swap files will keep you safe if your computer
-" crashes.
 set hidden
 
-" Note that not everyone likes working this way (with the hidden option).
-" Alternatives include using tabs or split windows instead of re-using the same
-" window as mentioned above, and/or either of the following options:
-" set confirm
-" set autowriteall
-
-" Better command-line completion
 set wildmenu
-
-" Show partial commands in the last line of the screen
 set showcmd
-
-" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
-" mapping of <C-L> below)
 set hlsearch
-
-" Modelines have historically been a source of security vulnerabilities. As
-" such, it may be a good idea to disable them and use the securemodelines
-" script, <http://www.vim.org/scripts/script.php?script_id=1876>.
-" set nomodeline
-
-
-"------------------------------------------------------------
-" Usability options {{{1
-"
-" These are options that users frequently set in their .vimrc. Some of them
-" change Vim's behaviour in ways which deviate from the true Vi way, but
-" which are considered to add usability. Which, if any, of these options to
-" use is very much a personal preference, but they are harmless.
-
-" Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
-
-" Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
-
-" When opening a new line and no filetype-specific indenting is enabled, keep
-" the same indent as the line you're currently on. Useful for READMEs, etc.
 set autoindent
-
-" Stop certain movements from always going to the first character of a line.
-" While this behaviour deviates from that of Vi, it does what most users
-" coming from other editors would expect.
 set nostartofline
-
-" Display the cursor position on the last line of the screen or in the status
-" line of a window
 set ruler
-
-" Always display the status line, even if only one window is displayed
 set laststatus=2
-
-" Instead of failing a command because of unsaved changes, instead raise a
-" dialogue asking if you wish to save changed files.
 set confirm
-
-" Use visual bell instead of beeping when doing something wrong
 set visualbell
-
-" And reset the terminal code for the visual bell. If visualbell is set, and
-" this line is also included, vim will neither flash nor beep. If visualbell
-" is unset, this does nothing.
 set t_vb=
-
-" Enable use of the mouse for all modes
 if has('mouse')
     set mouse=a
 endif
-
-" Set the command window height to 2 lines, to avoid many cases of having to
-" "press <Enter> to continue"
 set cmdheight=1
-
-" Display line numbers on the left
 set number
-
-" Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
-
-"------------------------------------------------------------
-" Indentation options {{{1
-"
-" Indentation settings according to personal preference.
-
-" Indentation settings for using 4 spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
-
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType js setlocal shiftwidth=2 tabstop=2
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-
-" Indentation settings for using hard tabs for indent. Display tabs as
-" four characters wide.
-"set shiftwidth=4
-"set tabstop=4
-
-
-"------------------------------------------------------------
-" Mappings {{{1
-"
-" Useful mappings
-
-" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
-" which is the default
 map Y y$
 filetype plugin indent on
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
-" next search
 nnoremap <C-L> :nohl<CR><C-L>
-" Tab management:
-" - F12             : new tab + Explore
-" - Ctrl-F12        : close tab ( without saving)
-" - Shift-F8        : open vertical terminal inside the tab
-" - F8              : open a terminal at the bottom of tab
-" - Ctrl+Shift+F12  : Quit all ( if something is changed will not work)
+map <C-PageUp> :tabprev<CR>
+map <C-PageDown> :tabnext<CR>
 
-"noremap <F12> :tabnew <bar> Vexplore <CR>
-noremap <S-F12>   :tabnew <bar> Vexplore <bar> let g:netrw_buffer=bufnr("%") <CR>
-noremap <C-F12>   :bd<CR>
-noremap <S-F8> :rightb vert term <CR>
-noremap <F8> :bel term <CR>
-noremap <C-q> :qa <CR>
-"f3 autoindentation of current file :)
+"Auto indentation
 noremap <F3> gg=G
+"color scheme
 colorscheme sano
+" copy paste like GUI editors
 noremap <C-a> ggVG
 vmap <C-c> "+y
 map <C-v> "+p
 map <C-x> "+d
+"nnoremap <C-o> :e<Space>
 
 noremap <C-Right> <C-w>l
 noremap <C-Left> <C-w>h
@@ -206,19 +96,11 @@ set statusline+=\ %{&number?'':printf('%2d,',line('.'))} " Line number
 set statusline+=%-2v " Virtual column number
 set statusline+=\ %2p%% " Percentage through file in lines as in |CTRL-G|
 
-" Logic for customizing the User1 highlight group is the following
-" - if StatusLine colors are reverse, then User1 is not reverse and User1 fg = StatusLine fg
-"hi StatusLine cterm=reverse gui=reverse ctermfg=14 ctermbg=8 guifg=#93a1a1 guibg=#002732
-"hi StatusLineNC cterm=reverse gui=reverse ctermfg=11 ctermbg=0 guifg=#657b83 guibg=#073642
-"hi User1 ctermfg=14 ctermbg=0 guifg=#93a1a1 guibg=#073642
-
 hi StatusLine cterm=reverse gui=reverse ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
 hi User1 ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000
 
 
 
-"Explorer settings
-"
 if exists('+autochdir')
     set autochdir
 endif
@@ -230,16 +112,37 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 20
 let g:netrw_chgwin=1
 
-"autocmd vimenter * Vexplore | let g:netrw_buffer=bufnr("%")
-" autoclose netrw buffer when closing the file in tab
-autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |bd|endif
+autocmd VimEnter * nested :tab sball
+autocmd BufWinEnter * nested :tab sball
 
 
-noremap <silent> <F12> :call ToggleNetRW()<CR>
-function ToggleNetRW()
-    if exists("g:netrw_buffer") && bufexists(g:netrw_buffer)
-        silent! exe "bd".g:netrw_buffer | unlet g:netrw_buffer
+let g:NetrwIsOpen=0
+
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i 
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
     else
-        Vexplore | let g:netrw_buffer=bufnr("%")
+        let g:NetrwIsOpen=1
+        silent Lexplore
     endif
 endfunction
+
+" ctrl+o open explored (toggle)
+noremap <silent> <C-o> :call ToggleNetrw()<CR>
+" ctrl+s Saves the file
+noremap <C-s> :w<CR>
+" ctrl+a Save as prompt
+noremap <C-a> :w
+" ctrl+n New buffer (file to save later)
+noremap <C-n> :tabnew<CR>
+" ctrl+q close current buffer (file)
+noremap <C-q> :q <CR>
+
+
