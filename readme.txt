@@ -51,4 +51,16 @@ in this setup I have included the following:
 - Ctrl-q : close 
 
 for me I thought it is enough, to make it great IDE.
-Please tell me wheter it works with you or not.
+
+I use it on my Ubuntu 20.4, in order to ensure all functions will work fine with you ensure to run :
+
+sudo apt-get install vim
+sudo apt upgrade vim-gtk
+
+the second line helps the vim editor to interact with system clipboard.
+
+I have added all shells required to install vim (installvim.sh)
+and to store the .vim & .vimrc into your home directory, so you can enjoy directly running vi with a good look, and simple yet nice functionality that serves 70% of actions you might need as developer, although I have vscode, but still I think vim is so poerful and handy to edit side files, and view huge files as well in a very efiicient way.
+
+Sanousy.
+
