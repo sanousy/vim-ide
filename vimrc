@@ -55,6 +55,13 @@ set softtabstop=4
 set expandtab
 map Y y$
 filetype plugin indent on
+
+"show documents as tabs
+"au VimEnter :tab ball<cr>
+augroup open-tabs
+    au!
+    au VimEnter * ++nested if !&diff | tab all | tabfirst | endif
+augroup end
 "nnoremap <C-L> :nohl<CR><C-L>
 map <C-PageUp> :tabprev<CR>
 map <C-PageDown> :tabnext<CR>
