@@ -57,11 +57,34 @@ map Y y$
 filetype plugin indent on
 
 "show documents as tabs
-"au VimEnter :tab ball<cr>
 augroup open-tabs
     au!
     au VimEnter * ++nested if !&diff | tab all | tabfirst | endif
 augroup end
+
+
+" Highlight the active tab.
+augroup TabColors
+  autocmd!
+  autocmd ColorScheme *
+        \ highlight TabLineFill
+        \   ctermfg=NONE
+        \   ctermbg=Darkgray
+  autocmd ColorScheme *
+        \ highlight TabLine
+        \   ctermfg=Gray
+        \   ctermbg=Darkgray
+  autocmd ColorScheme *
+        \ highlight TabLineSel
+        \   ctermfg=Black
+        \   ctermbg=Cyan
+  autocmd ColorScheme *
+        \ highlight Title
+        \   ctermfg=Darkgray
+        \   ctermbg=Red
+augroup END
+
+
 "nnoremap <C-L> :nohl<CR><C-L>
 map <C-PageUp> :tabprev<CR>
 map <C-PageDown> :tabnext<CR>
@@ -76,6 +99,7 @@ noremap <C-a> ggVG
 vmap <C-c> "+y
 map <C-p> "+p
 map <C-x> "+d
+map <C-z> u
 
 
 noremap <C-Right> <C-w>l
